@@ -1,0 +1,102 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-info">
+    <a class="navbar-brand" href="/home/neethi/Desktop/Mean_Stack/Assignment/Bank/bankLogin.html">HSN Bank</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+</nav>
+
+<div class="container text-center py-2 ">
+
+    <div class="row">
+        <div class="col-sm-12 text-center">
+            <h1 class="color">Welcome to HSN Bank</h1>
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="content-border col-sm-12  col-md-4 offset-md-4">
+            <h3 class="color">Login to Online Banking</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="content-border col-sm-12 col-md-4 offset-md-4 jumbotron jumbotron-fluid ">
+            <form [formGroup]="registerForm" (ngSubmit)="register()">
+                <div class="form-group">
+                    <input type="text" placeholder="First Name" formControlName="firstName">
+                    <div
+                        *ngIf="getError('firstName')&&(getControl('firstName').touched||getControl('firstName').dirty)">
+                        <div *ngIf="getError('firstName').required">
+                            Firstname is required
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="text" placeholder="Last Name" formControlName="lastName">
+                    <div *ngIf="getError('lastName')&&(getControl('lastName').touched||getControl('lastName').dirty)">
+                        <div *ngIf="getError('lastName').required">
+                            Lastname is required
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="text" placeholder="Phone" formControlName="phone">
+                    <div *ngIf="getError('phone')&&(getControl('phone').touched||getControl('phone').dirty)">
+                        <div *ngIf="getError('phone').required">
+                            Phone number is required
+                        </div>
+                        <div *ngIf="getError('phone').pattern">
+                            Phone number should only contain numbers
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="text" placeholder="Email" formControlName="email">
+                    <div *ngIf="getError('email')&&(getControl('email').touched||getControl('email').dirty)">
+                        <div *ngIf="getError('email').required">
+                            Email is required
+                        </div>
+                        <div *ngIf="getError('email').email">
+                            Email is invalid
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="text" placeholder="Account  number" formControlName="accno">
+                    <div *ngIf="getError('accno')&&(getControl('accno').touched||getControl('accno').dirty)">
+                        <div *ngIf="getError('accno').required">
+                            Account number required
+                        </div>
+                        <div *ngIf="getError('accno').minlength">
+                            Account number should be atleast 5
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="password" placeholder="Mpin" formControlName="mpin">
+                    <div *ngIf="getError('mpin')&&(getControl('mpin').touched||getControl('mpin').dirty)">
+                        <div *ngIf="getError('mpin').required">
+                            Mpin required
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="password" placeholder="Confirm Mpin" formControlName="confirmMpin">
+                    <div
+                        *ngIf="getError('confirmMpin')&&(getControl('confirmMpin').touched||getControl('confirmMpin').dirty)">
+                        <div *ngIf="getError('confirmMpin').required">
+                            Mpin required
+                        </div>
+                    </div>
+                    <div *ngIf="registerForm.errors">
+                        Mpin and confirm mpin should match
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button class="bt btn-info" type="submit" [disabled]="!registerForm.valid">Register</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

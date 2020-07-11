@@ -1,0 +1,55 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-info">
+  <a class="navbar-brand" routerLink="/">HSN Bank</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+</nav>
+
+<div class="container text-center py-2 ">
+
+  <div class="row">
+    <div class="col-sm-12 text-center">
+      <h1 class="color">Welcome to HSN Bank</h1>
+    </div>
+  </div>
+  <div class="row">
+
+    <div class="content-border col-sm-12  col-md-4 offset-md-4">
+      <h3 class="color">Login to Online Banking</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="content-border col-sm-12 col-md-4 offset-md-4 jumbotron jumbotron-fluid ">
+      <form [formGroup]="loginForm">
+        <div class="form-group">
+          <input type="text" placeholder="Account Number" formControlName="accno">
+          <div *ngIf="getError('accno')&&(getError('accno').touched||getError('accno').dirty)">
+            <div *ngIf="getError('accno').required">
+              Account number is required
+            </div>
+            <div *ngIf="getError('accno').pattern">
+              Pattern is invalid
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <input type="password" id="acmpin" placeholder="Mpin" formControlName="mpin">
+          <div *ngIf="getError('mpin')&&(getError('mpin').touched||getError('mpin').dirty)">
+            <div *ngIf="getError('mpin').required">
+              mpin is required
+            </div>
+            <div *ngIf="getError('mpin').pattern">
+              Minlength should be 3
+            </div>
+          </div>
+          <div class="form-group">
+            <button class="bt btn-info" type="submit" (click)="login()">Login</button>
+          </div>
+        </div>
+      </form>
+      <a routerLink="/register">Register</a>
+    </div>
+  </div>
+</div>

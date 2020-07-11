@@ -1,0 +1,9 @@
+<app-header page="profile" (clicked)="onHeaderClick($event)"></app-header>
+<div class="container">
+    You clicked {{ clickCount }} times
+    <h1>Profile Component</h1>
+    <div> Balance: {{ accountDetails.balance }}</div>
+    <div> Name: <input type="text" [value]="accountDetails.name" #name></div>
+    <div> Mpin: <input type="text" [value]="accountDetails.mpin" #mpin></div>
+    <button class="btn btn-primary" (click)="onSave(name.value, mpin.value)">Save</button>
+</div>

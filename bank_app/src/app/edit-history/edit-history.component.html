@@ -1,0 +1,20 @@
+<div class="container">
+    <h1>Edit Transaction</h1>
+    <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <input class="form-control" type="text" formControlName="amount">
+        </div>
+        <div class="form-group">
+            <select class="form-control" formControlName="typeOfAction">
+                <option value="debit">Debit</option>
+                <option value="credit">Credit</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <input class="form-control" type="date" formControlName="date">
+        </div>
+        <div class="form-group">
+            <input class="form-control btn btn-primary" type="submit">
+        </div>
+    </form>
+</div>

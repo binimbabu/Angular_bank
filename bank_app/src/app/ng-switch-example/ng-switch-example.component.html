@@ -1,0 +1,12 @@
+<p>ng-switch-example works!</p>
+<button (click)="switchCase('case1')">switch case to 1</button>
+<button (click)="switchCase('case2')">switch case to 2</button>
+<button (click)="switchCase('case3')">switch case to 3</button>
+selected case is {{ selectedCase | custom:'custom1' }}
+selected case is {{ selectedCase | custom:'custom2' }}
+<div [ngSwitch]="selectedCase">
+    <div *ngSwitchCase="'case1'">case1</div>
+    <div *ngSwitchCase="'case2'">case2</div>
+    <div *ngSwitchCase="'case3'">case3</div>
+    <div *ngSwitchDefault>default</div>
+</div>
